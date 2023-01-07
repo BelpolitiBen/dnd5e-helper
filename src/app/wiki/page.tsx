@@ -31,7 +31,7 @@ const endpoints = [
 const Page = () => {
   return (
     <div className="p-2">
-      <span className="text-xl">Endpoints:</span>
+      <span className="text-xl">Categories:</span>
       <div className="flex flex-col gap-1">
         {endpoints.map((endp) => (
           <Link key={endp} href={`/wiki/${endp}`}>
