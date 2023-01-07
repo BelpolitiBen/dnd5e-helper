@@ -1,10 +1,5 @@
 import React from 'react';
-import { useSearchParams } from 'next/navigation';
-import { json } from 'stream/consumers';
-
-// type Props = {
-//   ability: string;
-// };
+// import { json } from 'stream/consumers';
 
 async function getData(endpoint: string) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_DND_API_URL}${endpoint}`);
@@ -20,12 +15,19 @@ async function getData(endpoint: string) {
   return res.json();
 }
 
-export default async function Page() {
-  const searchParams = useSearchParams();
+type Props = {
+  params: { endpoint: string };
+};
 
-  const endpoint = searchParams.get('endpoint');
+const Page = async (props: Props) => {
+  const { endpoint } = props.params;
+  const data = await getData(endpoint);
 
-  const data = await getData(endpoint as string);
+  return (
+    <main>
+      <pre>{JSON.stringify(data, null, 4)}</pre>
+    </main>
+  );
+};
 
-  return <main>{JSON.stringify(data, null, 4)}</main>;
-}
+export default Page;

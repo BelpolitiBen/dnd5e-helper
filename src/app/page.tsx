@@ -1,38 +1,10 @@
-import { type NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 // import { signIn, signOut, useSession } from 'next-auth/react';
 
 // import { api } from '../utils/api';
 
-const endpoints = [
-  'ability-scores',
-  'alignments',
-  'backgrounds',
-  'classes',
-  'conditions',
-  'damage-types',
-  'equipment',
-  'equipment-categories',
-  'feats',
-  'features',
-  'languages',
-  'magic-items',
-  'magic-schools',
-  'monsters',
-  'proficiencies',
-  'races',
-  'rule-sections',
-  'rules',
-  'skills',
-  'spells',
-  'subclasses',
-  'subraces',
-  'traits',
-  'weapon-properties',
-];
-
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <>
       <Head>
@@ -42,12 +14,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className="dnd-helper flex flex-col gap-1">
-        ENDPOINTS
-        {endpoints.map((endp) => (
-          <Link key={endp} href={`/AbilityScores?enpoint=${endp}`}>
-            {endp}
-          </Link>
-        ))}
+        <Link href={'/wiki'}>Wiki</Link>
       </main>
     </>
   );

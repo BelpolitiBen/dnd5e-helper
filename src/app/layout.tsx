@@ -1,5 +1,6 @@
 import React from 'react';
-import './globals.css';
+import NavBar from './components/NavBar';
+import '../styles/globals.css';
 
 type Props = {
   children?: React.ReactNode;
@@ -8,7 +9,10 @@ type Props = {
 const layout = (props: Props) => {
   return (
     <html lang="en">
-      <body>{props.children}</body>
+      <body>
+        <NavBar />
+        <div className="content">{props.children}</div>
+      </body>
     </html>
   );
 };
